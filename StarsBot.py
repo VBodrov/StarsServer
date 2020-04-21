@@ -84,9 +84,24 @@ def turn(update):
     update.message.reply_text(answer)
 
 
+def turn_load():
+    """ For local tracking of new turn """
+    f = open("last_turn", "r")
+    last_turn = f.read()
+    f.close()
+    return int(last_turn)
+
+
+def turn_save(last_turn):
+    """ For local tracking of new turn """
+    f = open("last_turn", "w")
+    f.write("{:d}".format(last_turn))
+    f.close()
+
+
 #  Check if new turn have been made
 def read_turn(context):
-    current_turn = starserver.config['GAME']['YEAR']
+    current_turn = turn_load()
     new_turn = starserver.turn_year(starserver.config['PATHS']['CRADLE'] + starserver.config['GAME']['NAME'] + ".hst")
     if new_turn > current_turn:
         """ Message to group """
@@ -96,6 +111,7 @@ def read_turn(context):
         for user in LIST_OF_ADMINS:
             context.bot.send_message(chat_id=user,
                                      text="New " + str(new_turn) + " year. New turn!")
+        turn_save(new_turn)
         # TODO: Subscription mechanic for notification
 
 
