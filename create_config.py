@@ -39,6 +39,16 @@ config.set('PATHS', 'IMAGEMAGICK', '')
 config.set('PATHS', '; Path to stars.ini. Just in case, not using it for now')
 config.set('PATHS', 'STARSCONFIG', '')
 
+""" Bot parameters"""
+
+config.add_section('BOT')
+config.set('BOT', '; This section could be ignored, if TelegramBot not in use')
+config.set('BOT', '; TG_TOKEN - given by BotFather')
+config.set('BOT', 'TG_TOKEN', '')
+
+config.set('BOT', '; Group for updates of new turn')
+config.set('BOT', 'GROUP ID', '')
+
 """ Game parameters"""
 
 config.add_section('GAME')
@@ -81,11 +91,19 @@ config.set('PLAYER1', 'NAME', '')
 config.set('PLAYER1', '; Password to m-file. Needed to generate map')
 config.set('PLAYER1', 'PASSWORD', '')
 
+config.set('PLAYER1', '; For StarsBot integration, trlrgram_id of this player')
+config.set('PLAYER1', 'TG_ID', '')
+
+config.set('PLAYER1', '; For StarsBot integration, telegram nick for sending updates')
+config.set('PLAYER1', 'TG_NAME', '')
+
 for i in range(2, 17):
     config.add_section('PLAYER' + str(i))
     config.set('PLAYER' + str(i), 'ROLE', '')
     config.set('PLAYER' + str(i), 'NAME', '')
     config.set('PLAYER' + str(i), 'PASSWORD', '')
+    config.set('PLAYER' + str(i), 'TG_ID', '')
+    config.set('PLAYER' + str(i), 'TG_NAME', '')
 
 with open('StarsServer.ini', 'w') as configfile:
     config.write(configfile)
