@@ -20,3 +20,6 @@ Default folder structure:
 
 Project have been made for cooperative Players vs AI play in mind (You could find it out by merging m files code), 
 but could be upgraded for PvP gamestyle.
+
+This project was made for fun, you could use it at any means, or as inspiration. 
+Be cause i have cleaned code from any personal information, and change some hardcode pieces no success guarantees. %)
