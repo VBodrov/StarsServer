@@ -3,7 +3,8 @@ Python-based Stars! (4x strategy) server, intended to play by Telegram Bot
 
 TODO:
 1. Setup script for new game
-2. Add actual Telegram StarsBot
+2. Map generation automation
+3. Add some bot mechanics, including send and reciev .m, .x files
 
 Default folder structure:
 * /backup
